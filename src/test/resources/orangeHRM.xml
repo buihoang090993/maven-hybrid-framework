@@ -4,8 +4,9 @@
 <suite name="Orange HRM UI">
     <test name="Run On FireFox" preserve-order="true">
         <parameter name="browser" value="Firefox"/>
+        <parameter name="url" value="http://localhost:90/orangehrm-5.7"/>
         <classes>
-            <class name="employee.Level_03_Multiple_Browser"/>
+            <class name="employee.Level_04_PageObjectPattern"/>
         </classes>
     </test>
 </suite>
