@@ -29,8 +29,8 @@ public class Level_02_BasePage_III extends BasePage{
     public void Employee_01_NewEmployee() {
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         // Login
-        sendkeyToElement(driver, "//input[@name='username']", "Admin");
-        sendkeyToElement(driver, "//input[@name='password']", "admin123");
+        sendKeyToElement(driver, "//input[@name='username']", "Admin");
+        sendKeyToElement(driver, "//input[@name='password']", "admin123");
         clickToElement(driver, "//button[@type='submit']");
         // Chờ icon loading biến mất
         Assert.assertTrue(isLoadingIconDisappear(driver));
@@ -41,15 +41,15 @@ public class Level_02_BasePage_III extends BasePage{
         clickToElement(driver, "//a[text()='Add Employee']");
         // Nhập thông tin
         Assert.assertTrue(isLoadingIconDisappear(driver));
-        sendkeyToElement(driver, "//input[@name='firstName']", firstName);
-        sendkeyToElement(driver, "//input[@name='lastName']", lastName);
+        sendKeyToElement(driver, "//input[@name='firstName']", firstName);
+        sendKeyToElement(driver, "//input[@name='lastName']", lastName);
         employeeID = getElementDomProperty(driver, "//label[text()='Employee Id']/parent::div/following-sibling::div/input", "value");
         System.out.println(employeeID);
         clickToElement(driver, "//p[text()='Create Login Details']//following-sibling::div//span");
         sleepInSecond(2);
-        sendkeyToElement(driver, "//label[text()='Username']/parent::div/following-sibling::div/input", userName);
-        sendkeyToElement(driver, "//label[text()='Password']/parent::div/following-sibling::div/input", password);
-        sendkeyToElement(driver, "//label[text()='Confirm Password']/parent::div/following-sibling::div/input", password);
+        sendKeyToElement(driver, "//label[text()='Username']/parent::div/following-sibling::div/input", userName);
+        sendKeyToElement(driver, "//label[text()='Password']/parent::div/following-sibling::div/input", password);
+        sendKeyToElement(driver, "//label[text()='Confirm Password']/parent::div/following-sibling::div/input", password);
         clickToElement(driver, "//button[contains(string(),'Save')]");
         isElementDisplayed(driver, "//p[text()='Successfully Saved']");
         Assert.assertTrue(isLoadingIconDisappear(driver));

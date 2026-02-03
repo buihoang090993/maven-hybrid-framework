@@ -13,12 +13,12 @@ public class LoginPO extends BasePage {
 
     public void enterToUserNameTextbox(String adminUsername) {
         waitForElementVisible(driver, LoginUI.USERNAME_TEXTBOX);
-        sendkeyToElement(driver, LoginUI.USERNAME_TEXTBOX, adminUsername);
+        sendKeyToElement(driver, LoginUI.USERNAME_TEXTBOX, adminUsername);
     }
 
     public void enterToPasswordTextbox(String adminPassword) {
         waitForElementVisible(driver, LoginUI.PASSWORD_TEXTBOX);
-        sendkeyToElement(driver, LoginUI.PASSWORD_TEXTBOX, adminPassword);
+        sendKeyToElement(driver, LoginUI.PASSWORD_TEXTBOX, adminPassword);
     }
 
     public void clickToLoginButton() {
