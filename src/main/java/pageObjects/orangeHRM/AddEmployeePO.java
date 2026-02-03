@@ -13,20 +13,21 @@ public class AddEmployeePO extends BasePage {
 
     public void enterToFirstNameTextbox(String firstName) {
         waitForElementVisible(driver, AddEmployeeUI.FIRST_NAME_TEXTBOX);
-        sendkeyToElement(driver, AddEmployeeUI.FIRST_NAME_TEXTBOX, firstName);
+        sendKeyToElement(driver, AddEmployeeUI.FIRST_NAME_TEXTBOX, firstName);
     }
 
     public void enterToMiddleNameTextbox(String middleName) {
         waitForElementVisible(driver, AddEmployeeUI.MIDDLE_NAME_TEXTBOX);
-        sendkeyToElement(driver, AddEmployeeUI.MIDDLE_NAME_TEXTBOX, middleName);
+        sendKeyToElement(driver, AddEmployeeUI.MIDDLE_NAME_TEXTBOX, middleName);
     }
 
     public void enterToLastNameTextbox(String lastName) {
         waitForElementVisible(driver, AddEmployeeUI.LAST_NAME_TEXTBOX);
-        sendkeyToElement(driver, AddEmployeeUI.LAST_NAME_TEXTBOX, lastName);
+        sendKeyToElement(driver, AddEmployeeUI.LAST_NAME_TEXTBOX, lastName);
     }
 
     public String getEmployeeIDValue() {
+        // Lấy ra value trong HTML -> chỉ cần dùng wait presence
         waitForElementPresence(driver, AddEmployeeUI.EMPLOYEE_ID_TEXTBOX);
         return getElementDomProperty(driver, AddEmployeeUI.EMPLOYEE_ID_TEXTBOX, "value");
     }
@@ -38,17 +39,17 @@ public class AddEmployeePO extends BasePage {
 
     public void enterToUserNameTextbox(String userName) {
         waitForElementVisible(driver, AddEmployeeUI.USER_NAME_TEXTBOX);
-        sendkeyToElement(driver, AddEmployeeUI.USER_NAME_TEXTBOX, userName);
+        sendKeyToElement(driver, AddEmployeeUI.USER_NAME_TEXTBOX, userName);
     }
 
     public void enterToPasswordTextbox(String password) {
         waitForElementVisible(driver, AddEmployeeUI.PASSWORD_TEXTBOX);
-        sendkeyToElement(driver, AddEmployeeUI.PASSWORD_TEXTBOX, password);
+        sendKeyToElement(driver, AddEmployeeUI.PASSWORD_TEXTBOX, password);
     }
 
     public void enterToConfirmPasswordTextbox(String password) {
         waitForElementVisible(driver, AddEmployeeUI.CONFIRM_PASSWORD_TEXTBOX);
-        sendkeyToElement(driver, AddEmployeeUI.CONFIRM_PASSWORD_TEXTBOX, password);
+        sendKeyToElement(driver, AddEmployeeUI.CONFIRM_PASSWORD_TEXTBOX, password);
     }
 
     public void clickToSaveButton() {

@@ -81,7 +81,7 @@ public class BasePage {
         waitAlertPresence(driver).dismiss();
     }
 
-    public void sendkeyToAlert(WebDriver driver, String keyToSend) {
+    public void sendKeyToAlert(WebDriver driver, String keyToSend) {
         waitAlertPresence(driver).sendKeys(keyToSend);
     }
 
@@ -131,7 +131,7 @@ public class BasePage {
         getElement(driver, locator).click();
     }
 
-    public void sendkeyToElement(WebDriver driver, String locator, String valueToSend) {
+    public void sendKeyToElement(WebDriver driver, String locator, String valueToSend) {
         getElement(driver, locator).clear();
         getElement(driver, locator).sendKeys(valueToSend);
     }
@@ -149,7 +149,7 @@ public class BasePage {
     }
 
     public void selectItemEditableDropdown(WebDriver driver, String parentLocator, String childLocator, String expectedItem) {
-        sendkeyToElement(driver, parentLocator, expectedItem);
+        sendKeyToElement(driver, parentLocator, expectedItem);
         sleepInSecond(2); //-- Comment đi thì không click được
         List<WebElement> allItems = new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.presenceOfAllElementsLocatedBy(getByXpath(childLocator)));
 
@@ -308,7 +308,7 @@ public class BasePage {
         ((JavascriptExecutor) driver).executeScript("arguments[0].removeAttribute('" + attributeRemove + "');", getElement(driver, locator));
     }
 
-    public void sendkeyToElementByJS(WebDriver driver, String locator, String value) {
+    public void sendKeyToElementByJS(WebDriver driver, String locator, String value) {
         ((JavascriptExecutor) driver).executeScript("arguments[0].setAttribute('value', '" + value + "')", getElement(driver, locator));
     }
 
