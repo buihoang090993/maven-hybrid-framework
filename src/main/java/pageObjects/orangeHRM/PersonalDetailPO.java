@@ -2,6 +2,8 @@ package pageObjects.orangeHRM;
 
 import core.BasePage;
 import org.openqa.selenium.WebDriver;
+import pageObjects.PageGeneration;
+import pageObjects.PageGenerator;
 import pageUIs.orangeHRM.PersonalDetailUI;
 
 public class PersonalDetailPO extends BasePage {
@@ -29,6 +31,13 @@ public class PersonalDetailPO extends BasePage {
     public String getEmployeeIDTextboxValue() {
         waitForElementVisible(driver, PersonalDetailUI.EMPLOYEE_ID_TEXTBOX);
         return getElementDomProperty(driver, PersonalDetailUI.EMPLOYEE_ID_TEXTBOX, "value");
+    }
+
+    public EmployeeListPO clickToEmployeeListButton() {
+        waitForElementClickable(driver, PersonalDetailUI.EMPLOYEE_LIST_BUTTON);
+        clickToElement(driver, PersonalDetailUI.EMPLOYEE_LIST_BUTTON);
+//        return PageGenerator.getEmployeeListPage(driver);
+        return PageGeneration.getPage(EmployeeListPO.class, driver);
     }
 
 }
