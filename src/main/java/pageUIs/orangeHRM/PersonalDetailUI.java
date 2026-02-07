@@ -5,4 +5,5 @@ public class PersonalDetailUI {
     public static final String MIDDLE_NAME_TEXTBOX = "//input[@name='middleName']";
     public static final String LAST_NAME_TEXTBOX = "//input[@name='lastName']";
     public static final String EMPLOYEE_ID_TEXTBOX = "//label[text()='Employee Id']/parent::div/following-sibling::div/input";
+    public static final String EMPLOYEE_LIST_BUTTON = "//a[text()='Employee List']";
 }
