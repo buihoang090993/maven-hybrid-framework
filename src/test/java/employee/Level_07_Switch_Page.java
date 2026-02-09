@@ -7,11 +7,12 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import pageFactory.orangeHRM.*;
+import pageObjects.PageGeneration;
+import pageObjects.orangeHRM.*;
 
 import java.util.Random;
 
-public class Level_05_PageFactory extends BaseTest {
+public class Level_07_Switch_Page extends BaseTest {
     private WebDriver driver;
     private String firstName, middleName, lastName, adminUsername, adminPassword, userName, password, employeeID;
     private LoginPO loginPage;
@@ -19,6 +20,15 @@ public class Level_05_PageFactory extends BaseTest {
     private EmployeeListPO employeeListPage;
     private AddEmployeePO addEmployeePage;
     private PersonalDetailsPO personalDetailPage;
+    private ContactDetailsPO contactDetailsPage;
+    private EmergencyContactsPO emergencyContactsPage;
+    private DependentsPO dependentsPage;
+    private ImmigrationPO immigrationPage;
+    private JobPO jobPage;
+    private SalaryPO salaryPage;
+    private ReportToPO reportToPage;
+    private QualificationsPO qualificationsPage;
+    private MembershipsPO membershipsPage;
 
     @Parameters({"browser", "url"})
     @BeforeClass
@@ -33,7 +43,7 @@ public class Level_05_PageFactory extends BaseTest {
         userName = firstName + new Random().nextInt(999);
         password = "Testing111###";
 
-        loginPage = new LoginPO(driver);
+        loginPage = PageGeneration.getPage(LoginPO.class, driver);
     }
 
     @Test
@@ -41,23 +51,17 @@ public class Level_05_PageFactory extends BaseTest {
         // Login Page
         loginPage.enterToUserNameTextbox(adminUsername);
         loginPage.enterToPasswordTextbox(adminPassword);
-        loginPage.clickToLoginButton();
+        dashboardPage = loginPage.clickToLoginButton();
 
-        // Dashboard Page
-        dashboardPage = new DashboardPO(driver);
         Assert.assertTrue(dashboardPage.isLoadingIconDisappear(driver));
         Assert.assertTrue(dashboardPage.isDashboardHeaderDisplayed(driver));
-        dashboardPage.clickToPIMModule();
+        employeeListPage = dashboardPage.clickToPIMModule();
 
-        // Employee Page
-        employeeListPage = new EmployeeListPO(driver);
         Assert.assertTrue(employeeListPage.isLoadingIconDisappear(driver));
         Assert.assertTrue(employeeListPage.isPIMHeaderDisplayed(driver));
 
-        employeeListPage.clickToAddEmployeeButton();
+        addEmployeePage = employeeListPage.clickToAddEmployeeButton();
 
-        // Add Employee Page
-        addEmployeePage = new AddEmployeePO(driver);
         Assert.assertTrue(addEmployeePage.isLoadingIconDisappear(driver));
 
         addEmployeePage.enterToFirstNameTextbox(firstName);
@@ -79,8 +83,7 @@ public class Level_05_PageFactory extends BaseTest {
         Assert.assertTrue(addEmployeePage.isLoadingIconDisappear(driver));
 
         // Personal Details Page
-        personalDetailPage = new PersonalDetailsPO(driver);
-
+        personalDetailPage = PageGeneration.getPage(PersonalDetailsPO.class, driver);
 
         Assert.assertTrue(personalDetailPage.isLoadingIconDisappear(driver));
 
@@ -88,6 +91,29 @@ public class Level_05_PageFactory extends BaseTest {
         Assert.assertEquals(personalDetailPage.getMiddleNameTextboxValue(), middleName);
         Assert.assertEquals(personalDetailPage.getLastNameTextboxValue(), lastName);
         Assert.assertEquals(personalDetailPage.getEmployeeIDTextboxValue(), employeeID);
+    }
+
+    @Test
+    public void Switch_Page() {
+        contactDetailsPage = personalDetailPage.openContactDetailsPage(driver);
+
+        emergencyContactsPage = contactDetailsPage.openEmergencyContactsPage(driver);
+
+        dependentsPage = emergencyContactsPage.openDependentsPage(driver);
+
+        immigrationPage = dependentsPage.openImmigrationPage(driver);
+
+        jobPage = immigrationPage.openJobPage(driver);
+
+        salaryPage = jobPage.openSalaryPage(driver);
+
+        reportToPage = salaryPage.openReportToPage(driver);
+
+        qualificationsPage = reportToPage.openQualificationsPage(driver);
+
+        membershipsPage = qualificationsPage.openMembershipsPage(driver);
+
+        personalDetailPage = membershipsPage.openPersonalDetailsPage(driver);
     }
 
     @AfterClass

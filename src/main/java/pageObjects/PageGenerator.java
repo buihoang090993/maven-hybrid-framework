@@ -20,7 +20,7 @@ public class PageGenerator {
         return new LoginPO(driver);
     }
 
-    public static PersonalDetailPO getPersonalDetailPage(WebDriver driver) {
-        return new PersonalDetailPO(driver);
+    public static PersonalDetailsPO getPersonalDetailPage(WebDriver driver) {
+        return new PersonalDetailsPO(driver);
     }
 }

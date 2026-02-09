@@ -6,7 +6,7 @@
         <parameter name="browser" value="Firefox"/>
         <parameter name="url" value="http://localhost/orangehrm-5.8"/>
         <classes>
-            <class name="employee.Level_06_PageGenerator_II"/>
+            <class name="employee.Level_07_Switch_Page"/>
         </classes>
     </test>
 </suite>

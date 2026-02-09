@@ -6,6 +6,9 @@ import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pageObjects.PageGeneration;
+import pageObjects.orangeHRM.*;
+import pageUIs.orangeHRM.BasePageUI;
 
 import java.time.Duration;
 import java.util.List;
@@ -354,5 +357,65 @@ public class BasePage {
 
     public boolean isLoadingIconDisappear(WebDriver driver) {
         return waitForListElementInvisible(driver, "//div[contains(@class,'oxd-loading-spinner')]");
+    }
+
+    public PersonalDetailsPO openPersonalDetailsPage(WebDriver driver) {
+        waitForElementClickable(driver, BasePageUI.PERSONAL_DETAILS_LINK);
+        clickToElement(driver, BasePageUI.PERSONAL_DETAILS_LINK);
+        return PageGeneration.getPage(PersonalDetailsPO.class, driver);
+    }
+
+    public ContactDetailsPO openContactDetailsPage(WebDriver driver) {
+        waitForElementClickable(driver, BasePageUI.CONTACT_DETAILS_LINK);
+        clickToElement(driver, BasePageUI.CONTACT_DETAILS_LINK);
+        return PageGeneration.getPage(ContactDetailsPO.class, driver);
+    }
+
+    public EmergencyContactsPO openEmergencyContactsPage(WebDriver driver) {
+        waitForElementClickable(driver, BasePageUI.EMERGENCY_CONTACTS_LINK);
+        clickToElement(driver, BasePageUI.EMERGENCY_CONTACTS_LINK);
+        return PageGeneration.getPage(EmergencyContactsPO.class, driver);
+    }
+
+    public DependentsPO openDependentsPage(WebDriver driver) {
+        waitForElementClickable(driver, BasePageUI.DEPENDENTS_LINK);
+        clickToElement(driver, BasePageUI.DEPENDENTS_LINK);
+        return PageGeneration.getPage(DependentsPO.class, driver);
+    }
+
+    public ImmigrationPO openImmigrationPage(WebDriver driver) {
+        waitForElementClickable(driver, BasePageUI.IMMIGRATION_LINK);
+        clickToElement(driver, BasePageUI.IMMIGRATION_LINK);
+        return PageGeneration.getPage(ImmigrationPO.class, driver);
+    }
+
+    public JobPO openJobPage(WebDriver driver) {
+        waitForElementClickable(driver, BasePageUI.JOB_LINK);
+        clickToElement(driver, BasePageUI.JOB_LINK);
+        return PageGeneration.getPage(JobPO.class, driver);
+    }
+
+    public SalaryPO openSalaryPage(WebDriver driver) {
+        waitForElementClickable(driver, BasePageUI.SALARY_LINK);
+        clickToElement(driver, BasePageUI.SALARY_LINK);
+        return PageGeneration.getPage(SalaryPO.class, driver);
+    }
+
+    public ReportToPO openReportToPage(WebDriver driver) {
+        waitForElementClickable(driver, BasePageUI.REPORT_TO_LINK);
+        clickToElement(driver, BasePageUI.REPORT_TO_LINK);
+        return PageGeneration.getPage(ReportToPO.class, driver);
+    }
+
+    public QualificationsPO openQualificationsPage(WebDriver driver) {
+        waitForElementClickable(driver, BasePageUI.QUALIFICATIONS_LINK);
+        clickToElement(driver, BasePageUI.QUALIFICATIONS_LINK);
+        return PageGeneration.getPage(QualificationsPO.class, driver);
+    }
+
+    public MembershipsPO openMembershipsPage(WebDriver driver) {
+        waitForElementClickable(driver, BasePageUI.MEMBERSHIPS_LINK);
+        clickToElement(driver, BasePageUI.MEMBERSHIPS_LINK);
+        return PageGeneration.getPage(MembershipsPO.class, driver);
     }
 }
