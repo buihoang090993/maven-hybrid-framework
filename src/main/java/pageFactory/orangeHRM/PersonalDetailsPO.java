@@ -7,7 +7,7 @@ import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class PersonalDetailPO extends BasePageFactory {
+public class PersonalDetailsPO extends BasePageFactory {
     private WebDriver driver;
 
     @CacheLookup
@@ -23,7 +23,7 @@ public class PersonalDetailPO extends BasePageFactory {
     @FindBy(xpath = "//label[text()='Employee Id']/parent::div/following-sibling::div/input")
     private WebElement employeeIDTextbox;
 
-    public PersonalDetailPO(WebDriver driver) {
+    public PersonalDetailsPO(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }

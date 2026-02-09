@@ -18,7 +18,7 @@ public class Level_06_PageGenerator_I extends BaseTest {
     private DashboardPO dashboardPage;
     private EmployeeListPO employeeListPage;
     private AddEmployeePO addEmployeePage;
-    private PersonalDetailPO personalDetailPage;
+    private PersonalDetailsPO personalDetailPage;
 
     @Parameters({"browser", "url"})
     @BeforeClass
@@ -73,7 +73,7 @@ public class Level_06_PageGenerator_I extends BaseTest {
         Assert.assertTrue(addEmployeePage.isLoadingIconDisappear(driver));
 
         // Personal Details Page
-        personalDetailPage = new PersonalDetailPO(driver);
+        personalDetailPage = new PersonalDetailsPO(driver);
 
 
         Assert.assertTrue(personalDetailPage.isLoadingIconDisappear(driver));
